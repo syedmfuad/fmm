@@ -1,6 +1,8 @@
 # fmm 
 
-R and Julia implementation of the fully endogenized finite mixture modeling. This model employs a finite mixture model to sort households into endogenously determined latent submarkets. The finite mixture model to predict home prices is: 
+R and Julia implementation of the fully endogenized finite mixture model presented in forthcoming articles by Fuad and Farmer (202-) and Fuad, Farmer, and Abidemi (202-). 
+
+This model employs a finite mixture model to sort households into endogenously determined latent submarkets. The finite mixture model to predict home prices is: 
 
 $`h(P_i | x_i, \beta_j, p_j)=\sum_{j=1} \pi(z_i)f(P_i|x_i, \beta_j)`$ 
 
