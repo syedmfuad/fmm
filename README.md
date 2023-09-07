@@ -16,7 +16,8 @@ Interim estimators of $`d^{t+1}`$ are then used to impute new estimates of $`\be
 
 For each prescribed latent class, estimators of $`\beta^{v+1}`$ are imputed, via M-step, as well as $`\pi^{v+1}`$ 
 
-Increase v counter by 1, and repeat M-step until: 
+Increase $`v`$ counter by 1, and repeat M-step until: $`f(\beta^{v+1}y, x, \pi, d) - f(\beta^vy, x, \pi, d) < \alpha`$ prescribed constant; if yes, then $`\beta^{t+1}=\beta^{v+1}`$ 
 
+Increase $`t`$ counter and continue from Step 3 until: $`f(\beta^{t+1}, \pi^{t+1}, d | y) - f(\beta^t, \pi^t, d | y) < \alpha`$ prescribed constant 
 
 
