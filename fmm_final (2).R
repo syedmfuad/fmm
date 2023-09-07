@@ -1,5 +1,5 @@
 
-path <- "C:/Users/Michael/Desktop/Farmer/"
+#Test on Lubbock data 
 
 data <- read.table(paste0(path,"HHdata.csv"), header=TRUE, sep=",")
 
