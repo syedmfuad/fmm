@@ -35,3 +35,5 @@ This process is repeated until there is no change in the likelihood function: $`
 
 The steps above, particularly from Step 3-8 do not necessarily occur sequentially as outlined above but occur simultaneously as the continual updating of estimators. Each $`v`$ iteration conditionally maximizes the likelihood function using interim estimates of observation latent class membership probabilities in one of the latent classes; while each $`t`$ iteration updates latent class memberships. 
 
+The modified hedonic regression is: $`y_{ij} = d_{ij}(\beta_j X_i)+\Epsilon_{ij}`$
+
