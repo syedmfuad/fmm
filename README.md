@@ -8,9 +8,9 @@ The mixing model $`\pi(z_i)`$, is used to assign each observation a percentage c
 
 We also define $`d_i = (d_{i1}, d_{i2}, ..., d_{im})`$ to be binary variables that indicate the inclusion of household $`i`$ into each latent group. These are incorporated into the likelihood function based on a logistic function which are conditional on factors that do not directly influence the price of the house. 
 
-Since the submarket identification ($`d`$) is not directly observable, an expectation maximization (EM) algorithm is used to estimate the likelihood of class identification: 
+Since the submarket identification ($`d`$) is not directly observable, an expectation maximization (EM) algorithm is used to estimate the likelihood of class identification: $`d_{ij}=\frac{\pi_j f_j (P_i | x_i, \beta_j)}{\sum_{j=1} \pi_j f_j (P_i | x_i, \beta_j)}`$ 
 
-$`d_{ij}=\frac{\pi_j f_j (P_i | x_i, \beta_j)}{\sum_{j=1} \pi_j f_j (P_i | x_i, \beta_j)}`$
+The Expectation step – the E step – involves imputation of the expected value of $`d_i`$ given the mixing covariates, interim estimates of $`\gamma, \beta, \pi`$. The Maximization step – the M step – involves using estimates of $`d_i`$ from the E step to update the component fractions of $`\pi_j`$ and $`\beta`$. The EM algorithm can be summarized as: 
 
 1. Generate starting values for $`\gamma, \beta, \pi`$
 
