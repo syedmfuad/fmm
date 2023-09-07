@@ -30,7 +30,8 @@ The Expectation step – the E step – involves imputation of the expected valu
 
 $`d_{ij}`$ is estimated simultaneously with the estimation of the hedonic regression parameters, which are conditional on class identification: 
 
-$`LogL = \sum_{i=1} \sum_{j=1} d_{ij} log[f_j (P_i | x_i, \beta_j)] + d_{ij} log[\pi_j]`$ 
 
-This process is repeated until there is no change in the likelihood function above. 
+This process is repeated until there is no change in the likelihood function: $`LogL = \sum_{i=1} \sum_{j=1} d_{ij} log[f_j (P_i | x_i, \beta_j)] + d_{ij} log[\pi_j]`$ 
+
+The steps above, particularly from Step 3-8 do not necessarily occur sequentially as outlined above but occur simultaneously as the continual updating of estimators. Each $`v`$ iteration conditionally maximizes the likelihood function using interim estimates of observation latent class membership probabilities in one of the latent classes; while each $`t`$ iteration updates latent class memberships. 
 
