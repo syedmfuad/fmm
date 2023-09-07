@@ -6,7 +6,11 @@ $`h(P_i | x_i, \beta_j, p_j)=\sum_{j=1} \pi(z_i)f(P_i|x_i, \beta_j)`$
 
 The mixing model $`\pi(z_i)`$, is used to assign each observation a percentage chance of belonging to each latent submarket and $`f(.)`$ is a submarket specific conditional hedonic regression. The home price is therefore a weighted average of predicted values across submarkets weighted by the probability of being located in the submarket. 
 
-We also define $`d_i = (d_{i1}, d_{i2}, ..., d_{im})`$ to be binary variables that indicate the inclusion of household $`i`$ into each latent group. 
+We also define $`d_i = (d_{i1}, d_{i2}, ..., d_{im})`$ to be binary variables that indicate the inclusion of household $`i`$ into each latent group. These are incorporated into the likelihood function based on a logistic function which are conditional on factors that do not directly influence the price of the house. 
+
+Since the submarket identification ($`d`$) is not directly observable, an expectation maximization (EM) algorithm is used to estimate the likelihood of class identification simultaneously with the estimation of the hedonic regression parameters, which are conditional on class identification. 
+
+$`\d_{ij}=\frac{\pi_j f_j (P_i | x_i, \beta_j)}{\sum_{j=1} \pi_j f_j (P_i | x_i, \beta_j)}`$
 
 Generate starting values for $`\gamma, \beta, \pi`$
 
