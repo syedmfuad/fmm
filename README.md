@@ -20,7 +20,7 @@ Use $`\beta^t`$ and $`\pi^t`$ from Step 2 to calculate provisional $`d^t`$ and $
 
 Initiate second iteration counter, $`v`$, for the M-step 
 
-Interim estimators of $`d^{t+1}`$ are then used to impute new estimates of $`\beta^{v+1}`$ and $`\pi^{v+1}`$ 
+Interim estimators of $`d^{t+1}`$ are then used to impute new estimates of $`\beta^{v+1}`$ and $`\pi^{v+1}`$ with $`d_{ij}=\frac{\pi_j f_j (P_i | x_i, \beta_j)}{\sum_{j=1} \pi_j f_j (P_i | x_i, \beta_j)}`$
 
 For each prescribed latent class, estimators of $`\beta^{v+1}`$ are imputed, via M-step, as well as $`\pi^{v+1}`$ 
 
