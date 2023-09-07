@@ -1,4 +1,4 @@
-# fmm 
+# fully endogenized finite mixture model  
 
 R and Julia implementation of the fully endogenized finite mixture model used in forthcoming articles by Fuad and Farmer (202-) and Fuad, Farmer, and Abidemi (202-). 
 
