@@ -1,6 +1,6 @@
 # fully endogenized finite mixture model  
 
-R and Julia implementation of the fully endogenized finite mixture model used in forthcoming articles by Fuad and Farmer (202-) and Fuad, Farmer, and Abidemi (202-). Codes presented are for two submarkets that can be modified for more than two submarkets. 
+R, Julia and Python implementation of the fully endogenized finite mixture model used in forthcoming articles by Fuad and Farmer (202-) and Fuad, Farmer, and Abidemi (202-). Codes presented are for two submarkets that can be modified for more than two submarkets. 
 
 This model employs a finite mixture model to sort households into endogenously determined latent submarkets. The finite mixture model to predict home prices is: 
 
