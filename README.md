@@ -12,7 +12,7 @@ Since the submarket identification ($`d`$) is not directly observable, an expect
 
 $`d_{ij}=\frac{\pi_j f_j (P_i | x_i, \beta_j)}{\sum_{j=1} \pi_j f_j (P_i | x_i, \beta_j)}`$
 
-Generate starting values for $`\gamma, \beta, \pi`$
+[^1] Generate starting values for $`\gamma, \beta, \pi`$
 
 Initiate iteration counter for the E-step, $`t`$ (initial $`t`$ at 0) 
 
