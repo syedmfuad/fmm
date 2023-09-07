@@ -8,7 +8,7 @@ The mixing model $`\pi(z_i)`$, is used to assign each observation a percentage c
 
 We also define $`d_i = (d_{i1}, d_{i2}, ..., d_{im})`$ to be binary variables that indicate the inclusion of household $`i`$ into each latent group. These are incorporated into the likelihood function based on a logistic function which are conditional on factors that do not directly influence the price of the house. 
 
-Since the submarket identification ($`d`$) is not directly observable, an expectation maximization (EM) algorithm is used to estimate the likelihood of class identification simultaneously with the estimation of the hedonic regression parameters, which are conditional on class identification. 
+Since the submarket identification ($`d`$) is not directly observable, an expectation maximization (EM) algorithm is used to estimate the likelihood of class identification: 
 
 $`d_{ij}=\frac{\pi_j f_j (P_i | x_i, \beta_j)}{\sum_{j=1} \pi_j f_j (P_i | x_i, \beta_j)}`$
 
@@ -16,7 +16,7 @@ Generate starting values for $`\gamma, \beta, \pi`$
 
 Initiate iteration counter for the E-step, $`t`$ (initial $`t`$ at 0) 
 
-Use $`\beta^t`$ and $`\pi^t`$ from Step 2 to calculate provisional $`d^t`$ and $`\gamma^t`$ from $`d_{ij}=\frac{e^{\gamma_j z_i}}{1+\sum_{C=1}e^{\gamma_j z_i}}`$ 
+Use $`\beta^t`$ and $`\pi^t`$ from Step 2 to calculate provisional $`d^t`$ from $`d_{ij}=\frac{e^{\gamma_j z_i}}{1+\sum_{C=1}e^{\gamma_j z_i}}`$ 
 
 Initiate second iteration counter, $`v`$, for the M-step 
 
@@ -28,4 +28,9 @@ Increase $`v`$ counter by 1, and repeat M-step until: $`f(\beta^{v+1}y, x, \pi, 
 
 Increase $`t`$ counter and continue from Step 3 until: $`f(\beta^{t+1}, \pi^{t+1}, d | y) - f(\beta^t, \pi^t, d | y) < \alpha`$ prescribed constant 
 
+$`d_{ij}`$ is estimated simultaneously with the estimation of the hedonic regression parameters, which are conditional on class identification: 
+
+$`LogL = \sum_{i=1} \sum_{j=1} d_{ij} log[f_j (P_i | x_i, \beta_j)] + d_{ij} log[\pi_j]`$ 
+
+This process is repeated until there is no change in the likelihood function above. 
 
