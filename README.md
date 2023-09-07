@@ -10,7 +10,7 @@ We also define $`d_i = (d_{i1}, d_{i2}, ..., d_{im})`$ to be binary variables th
 
 Since the submarket identification ($`d`$) is not directly observable, an expectation maximization (EM) algorithm is used to estimate the likelihood of class identification simultaneously with the estimation of the hedonic regression parameters, which are conditional on class identification. 
 
-$`\d_{ij}=\frac{\pi_j f_j (P_i | x_i, \beta_j)}{\sum_{j=1} \pi_j f_j (P_i | x_i, \beta_j)}`$
+$`d_{ij}=\frac{\pi_j f_j (P_i | x_i, \beta_j)}{\sum_{j=1} \pi_j f_j (P_i | x_i, \beta_j)}`$
 
 Generate starting values for $`\gamma, \beta, \pi`$
 
