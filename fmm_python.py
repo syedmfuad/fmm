@@ -190,3 +190,5 @@ gse = np.sqrt(np.diagonal(inv_hess))
 
 LL = FnTwo(par2, d, X, Y) + FnFour(g, d, Z, Y)
 
+
+
