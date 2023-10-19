@@ -3,7 +3,7 @@
 
 # In[ ]:
 
-#needs debugging??? 
+#implements the fully endogenized finite mixture model described here: https://github.com/syedmfuad/fmm
 
 import pandas as pd
 import numpy as np
