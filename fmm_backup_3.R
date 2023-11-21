@@ -1,12 +1,12 @@
-rm(list=ls())
 
-setwd("C:/Users/syedm/Desktop/Distance paper")
+
+rm(list=ls())
 
 #Test on Lubbock data 
 
 data <- read.table("HHdata.csv", header=TRUE, sep=",")
 
-Y <- I(data$Price)/100000
+Y <- I(data$Price)/100000 
 
 #house attributes
 
@@ -41,7 +41,7 @@ vals <- val_start;
 
 #convergence criteria comparing new and old estimates:
 
-Iter_conv <- 0.0001;
+Iter_conv <- 0.0001; 
 j <- types; 
 
 #number of independent variables or beta estimates we need to keep track of - so to use when indexing
@@ -90,7 +90,6 @@ FnTwo <- function(par,d,x,y)
 #FnThree logit for gamma estimates 
 #Computes the logistic function of the demographic variable estimates 
 #(The exponential (exp) of the product of demographic variables (z) and their coefficients (g))
-#This is a part of the logistic regression model to predict the probability of a house belonging to a particular type based on demographic variables 
 
 FnThree <- function(g,z)  
 { 
@@ -177,7 +176,6 @@ FMM <- function(par,X,Z,y) {
     
     
     #updating a column of L based on the demographic variables (Z) and their respective coefficients (g)
-    #this computation is essentially a part of a logistic regression model where Z %*% g gives the linear predictor for the logistic model 
     
     minus <- types - 1
     for (i in 1:(j - minus)) {
@@ -299,7 +297,8 @@ bse
 
 s <- beta_opt$par[(j*niv+1):(j*(niv+1))]
 
-
+LL <- FnTwo(par3,d=d,x=X,y=Y) + FnFour(g,d=d,z=Z,y=Y, j=types);
+AIC <- -2*LL+2*niv
 
 
 #if (types == 2) {
@@ -314,7 +313,7 @@ s <- beta_opt$par[(j*niv+1):(j*(niv+1))]
   #bse2 <- sqrt(-diag(solve(beta_opt$hessian[(niv+1):(2*niv), (niv+1):(2*niv)])))
   #bse3 <- sqrt(-diag(solve(beta_opt$hessian[(niv*2+1):(3*niv), (niv*2+1):(3*niv)])))
   #bse4 <- sqrt(-diag(solve(beta_opt$hessian[(niv*3+1):(4*niv), (niv*3+1):(4*niv)])))
-}
+#}
 
 #beta_opt <- optim(par3,FnTwo,d=d,x=X,y=Y,control=list(fnscale=-1,maxit=10000),hessian=TRUE)
 #b <- matrix(beta_opt$par[1:(j*niv)],niv,j); 
@@ -413,13 +412,19 @@ gse
 
 
 
-
+#MAPPING 
 
 
 data_new <- cbind(data, d)
-colnames(data_new)[(ncol(data) + 1):ncol(data_new)] <- c("Sub1", "Sub2", "Sub3")
+colnames(data_new)[(ncol(data) + 1):ncol(data_new)] <- c("Sub1", "Sub2")
 
+data_new$sub <- ifelse(data_new$Sub1>data_new$Sub2, "Sub1", "Sub2")
 
+sub1 <- subset(data_new, sub=="Sub1")
+sub2 <- subset(data_new, sub=="Sub2")
+
+summary(sub1$ExpBird)
+summary(sub2$ExpBird)
 
 library(dplyr)
 library(ggplot2)
@@ -520,7 +525,7 @@ tm_shape(lbk_black) +
               n = 5,
               palette = "Blues",
               title = "Percent Black\nby Census tract") + 
-  tm_shape(df) + tm_bubbles(size=0.25, col="Sub3", palette = "Reds", style = "quantile", legend.size.show = FALSE,
+  tm_shape(df) + tm_bubbles(size=0.10, col="Sub2", palette = "Reds", style = "quantile", legend.size.show = FALSE,
                             border.lwd = 0.1, border.alpha = 0.1, border.col = "black",
                             title.col = "Probability", alpha = 0.5)
 
@@ -532,6 +537,11 @@ tm_shape(lbk_med_income) +
               n = 5,
               palette = "Blues",
               title = "Median Income\nby Census tract") + 
-  tm_shape(df) + tm_bubbles(size=0.25, col="Sub2", palette = "Reds", style = "quantile", legend.size.show = FALSE,
+  tm_shape(df) + tm_bubbles(size=0.10, col="Sub2", palette = "Reds", style = "quantile", legend.size.show = FALSE,
                             border.lwd = 0.1, border.alpha = 0.1, border.col = "black",
                             title.col = "Probability", alpha = 0.5)
+
+
+
+
+
